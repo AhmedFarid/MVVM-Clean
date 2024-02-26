@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import Combine
+
+final class HomeRepositoryImplementation: HomeRepositoryProtocol {
+
+    let homeNetwork: HomeRemoteRepository
+
+    init(homeNetwork: HomeRemoteRepository = HomeNetwork() ) {
+        self.homeNetwork = homeNetwork
+    }
+
+    func getPosts() -> AnyPublisher<Posts, Error> {
+        homeNetwork.getPosts()
+    }
+
+}

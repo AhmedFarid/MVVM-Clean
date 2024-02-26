@@ -8,4 +8,6 @@
 import Foundation
 import Combine
 
-protocol
+protocol DetailsRepositoryProtocol {
+    func getDetails() -> AnyPublisher<Posts, Error>
+}

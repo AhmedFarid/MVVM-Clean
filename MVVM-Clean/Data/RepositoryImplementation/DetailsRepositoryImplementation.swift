@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import Combine
+
+final class DetailsRepositoryImplementation: DetailsRepositoryProtocol {
+    let detailsNetwork : DetailsNetwork
+
+    init(detailsNetwork: DetailsNetwork = DetailsNetwork()) {
+        self.detailsNetwork = detailsNetwork
+    }
+
+    func getDetails() -> AnyPublisher<Posts, Error> {
+        detailsNetwork.getDetails()
+    }
+}

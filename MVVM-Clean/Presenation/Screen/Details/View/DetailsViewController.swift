@@ -6,24 +6,35 @@
 //
 
 import UIKit
+import Combine
 
 class DetailsViewController: UIViewController {
 
+    private let viewModel: DetailsViewModelProtocol
+    private var anyCancellable = Set<AnyCancellable>()
+    weak var coordinator: DetailsTransitionDelegate?
+
+    init(viewModel: DetailsViewModelProtocol = DetailsViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: "DetailsViewController", bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel.viewDidLoad()
+        setupUI()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        coordinator?.backHome()
     }
-    */
+
+    func setupUI() {
+        title = "Details"
+    }
 
 }

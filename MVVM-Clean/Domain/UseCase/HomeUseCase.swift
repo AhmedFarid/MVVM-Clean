@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import Combine
+
+class HomeUseCase {
+    private let repo: HomeRepositoryProtocol
+
+    init(repo: HomeRepositoryProtocol = HomeRepositoryImplementation()) {
+        self.repo = repo
+    }
+
+    func getPosts() -> AnyPublisher <Posts, Error> {
+        repo.getPosts()
+    }
+
+//    func getTitleFromPosts() -> [String]  {
+//        getPosts().values.flatMap {$0.title}
+//    }
+}

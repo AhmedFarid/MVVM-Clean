@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct PostModel: Codable {
+    let title: String?
+    let body: String?
+
+    public init(title: String?, body: String?) {
+        self.title = title
+        self.body = body
+    }
+}
+typealias Posts = [PostModel]

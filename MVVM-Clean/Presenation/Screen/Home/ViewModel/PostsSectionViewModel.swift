@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class PostsSectionViewModel {
+    var dataSource: Posts
+    init(_  dataSource: Posts) {
+        self.dataSource = dataSource
+    }
+}
