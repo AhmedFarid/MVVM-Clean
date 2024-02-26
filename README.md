@@ -1,10 +1,10 @@
 # MVVM-Clean
 
-[] Clean Code 
-[] Clean Architecture
-[] MVVM
-[] Coordinator
-[] SOLID
-[] Git
-[] dependency injection
-[] Networking(combine)
+# Clean Code 
+# Clean Architecture
+# MVVM
+# Coordinator
+# SOLID
+# Git
+# Dependency injection
+# Networking(combine)
